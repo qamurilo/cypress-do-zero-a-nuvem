@@ -1,5 +1,3 @@
-console.log('Cypress, do Zero à Nuvem')
-
 let isPhoneRequired = false
 
 const phoneLabelSpan = document.querySelector('.phone-label-span')
@@ -66,5 +64,5 @@ function showAndHideErrorMessage() {
 function hideMessageAfterTimeout(element) {
   setTimeout(function() {
     element.style.display = 'none'
-  }, 5000)
+  }, 3000)
 }
