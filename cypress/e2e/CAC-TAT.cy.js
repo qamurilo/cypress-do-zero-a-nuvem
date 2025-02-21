@@ -56,7 +56,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#firstName').type('Murilo')
     cy.get('#lastName').type('Frederico Teixeira')
     cy.get('#email').type('murilo.teixeira@edu.unipar.br')
-    cy.get('#support-type > :nth-child(4)').click()
+    cy.get('input[type="radio"][value="feedback"][name="atendimento-tat"]').click()
     cy.get('#open-text-area').type('Muito obrigado , estou gostando bastante do conteúdo de vocês, nota 10!')
     cy.get('#phone-checkbox').check()
     cy.contains('button', 'Enviar').click()
