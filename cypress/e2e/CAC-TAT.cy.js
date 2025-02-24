@@ -238,7 +238,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
 
   it('Encontra o gato escondido', () => {
      cy.get('#cat')
-       .invoke('show')
+       .invoke('show')  
        .should('be.visible')
      cy.get('#title')
        .invoke('text', 'CAT TAT')
