@@ -1,0 +1,87 @@
+Comandos uteis:
+
+git --version && node --version && npm --version > Verificar a versão do nodejs
+
+npm install cypress@13.12.0 --save--dev > Instalar o cypress
+
+npx cypress open > ABRIR O cypress no gitbash
+
+cd cypress-do-zero-a-nuvem/ >Trocar para a pasta do cypress
+
+npx cypress run --headed > Rodar o cypress sem precisar selecionar no modo open (Todas as switchs)
+
+npx cypress run --headed --spec 'cypress/e2e/CAC-TAT.cy.js'
+
+npx cypress run --headless > Rodar o cypress por baixo dos panos.
+
+
+
+Configurar novo projeto no cypress:
+
+1 - Dentro do vs code abrir o terminal e digitar: npm init -y
+2 - Instalar o cypress dentro do vs code: "npm install cypress --save--dev" e depois "npx cypress -v" e depois "npx cypress open"
+
+Extensões do vscode:
+- Git Hub Copilot Chat
+- GitHub Copilot
+- Cypress Helper
+- ES7 React/Redux/GraphQL/React-Native snippets
+- GitHub Actions
+- init node-script
+- javascript and typescript nightly
+
+-----------------------------------------
+
+Cypress.config:
+
+const { defineConfig } = require('cypress')
+
+module.exports = defineConfig({
+  viewportHeight: 1080,
+  viewportWidth: 1920,
+  e2e: {
+    setupNodeEvents(on,config){
+
+    },
+    testIsolation: false,
+    experimentalInteractiveRunEvents: true,
+    experimentalRunAllSpecs: true,
+    experimentalMemoryManagement: true,
+    scrollBehavior: 'center',
+    chromeWebSecurity: false,
+    baseUrl: "https://uat.me.com.br",
+    injectDocumentDomain: true,
+    experimentalWebKitSupport: true,
+  },
+})
+-----------------------------------------
+
+package.json:
+
+{
+  "name": "comparativepanelsummary",
+  "version": "1.0.0",
+  "description": "Testes automatizados do comparativepanelsummary",
+  "main": "src/index.html",
+  "scripts": {
+    "cy:open": "cypress open",
+    "cy:open:mobile": "cypress open --config viewportWidth=410,viewportHeight=860",
+    "cy:headed": "cypress run",
+    "cy:headless": "cypress run --headless"
+  },
+  "author": "Murilo Frederico Teixeira <murilo.teixeira@me.com.br>",
+  "devDependencies": {
+    "cypress": "^14.0.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.5.1"
+  }
+}
+-----------------------------------------
+
+e2e.js:
+import './{nome da pasta do comando customizado}'
+
+Cypress.on('uncaught:exception', () => {
+    return false;
+  })
